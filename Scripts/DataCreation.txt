@@ -1,0 +1,110 @@
+from faker import Faker
+import random
+import csv
+from datetime import datetime, timedelta
+
+
+
+
+def generate_and_write_to_csv(table_name, columns, data):
+    filename = f"{table_name.lower()}_data.csv"
+
+    with open(filename, 'w', newline='') as csvfile:
+        csv_writer = csv.writer(csvfile)
+        
+        # Write the header (column names)
+        csv_writer.writerow(columns)
+        
+        # Write the data
+        csv_writer.writerows(data)
+
+    print(f"CSV file '{filename}' created successfully for table '{table_name}'.")
+
+fake = Faker()
+
+# Generate Train data
+train_data = [(i, fake.company(), random.randint(100, 500), fake.sentence()) for i in range(1, 10001)]
+
+# Generate Passenger data
+passenger_data = [(i, fake.first_name(), fake.last_name(), random.randint(18, 70), fake.random_element(['Male', 'Female']),
+                   fake.address(), fake.phone_number()) for i in range(1, 10001)]
+
+# Generate Ticket data
+ticket_data = [(i, random.randint(1, 10000), random.randint(1, 10000), random.randint(50, 300)) for i in range(1, 10001)]
+
+# Generate Station data
+station_data = [(fake.city(), fake.address()) for _ in range(1, 1001)]
+
+# Generate Route data
+route_data = [(i, fake.city(), fake.city(), f"{random.randint(50, 500)} miles", f"{random.randint(1, 10)} hours") for i in
+              range(1, 1001)]
+
+# Generate Route_Intermediate_Station data
+intermediate_data = [(random.randint(1, 1000), fake.city()) for _ in range(1, 5001)]
+
+# Generate LostAndFound data
+lost_and_found_data = [(i, fake.city(), random.randint(1, 10000), fake.date_between('-1y', 'today'),
+                        fake.sentence(), fake.random_element(['Yes', 'No'])) for i in range(1, 10001)]
+
+# Generate Schedule data
+schedule_data = [(random.randint(1, 10000), random.randint(1, 1000), fake.date_between('-1y', 'today'),
+                  fake.date_between('-1y', 'today'), fake.time(), fake.time()) for _ in range(1, 10001)]
+
+# Generate TrainDelayHistory data
+delay_history_data = [(i, random.randint(1, 10000), fake.date_between('-1y', 'today'),
+                       f"{random.randint(1, 120)} minutes", fake.sentence(), fake.sentence()) for i in range(1, 10001)]
+
+# Generate CateringService data
+catering_service_data = [(fake.company(), random.randint(1, 10000), fake.random_element(['Meal', 'Snack']),
+                          fake.sentence(), random.randint(5, 30)) for _ in range(1, 1001)]
+
+# Generate Ticket_Status data
+ticket_status_data = [(random.randint(1, 10000), str(random.randint(1, 100)),
+                       str(random.randint(1, 50))) for _ in range(1, 10001)]
+
+# Generate Reservation data
+reservation_data = [(random.randint(1, 10000), random.randint(1, 10000), fake.date_between('-1y', 'today'),
+                     fake.random_element(['Confirmed', 'Waiting'])) for _ in range(1, 10001)]
+
+# Generate Complaints data
+complaints_data = [(random.randint(1, 10000), random.randint(1, 10000), fake.sentence(),
+                    fake.random_element(['Open', 'Closed']), fake.sentence()) for _ in range(1, 10001)]
+
+
+
+
+
+
+# Define the columns for each table
+train_columns = ['Train_No', 'Name', 'Capacity', 'Train_Desc']
+passenger_columns = ['Passenger_ID', 'First_Name', 'Last_Name', 'Age', 'Gender', 'Address', 'Mobile_no']
+ticket_columns = ['Ticket_NO', 'Passenger_ID', 'Train_No', 'Ticket_Price']
+station_columns =['Station_Name', 'Address']
+route_columns = ['Route_ID', 'Source_Station', 'Destination_Station', 'Distance', 'Duration' ]
+intermediate_columns = ['Route_ID', 'Station_Name']
+lost_and_found_columns = ['LostAndFound_ID', 'Station_Name', 'Claimed_By_Passenger_ID', 'Found_Date', 'Item_Description', 'Claimed']
+schedule_columns = ['Train_No', 'Route_ID', 'Departure_Date', 'Arrival_Date', 'Departure_Time', 'Arrival_Time']
+delay_history_columns = ['DelayHistory_ID', 'Train_No', 'Date', 'Delay_Duration', 'Cause', 'Resolution_Details']
+catering_service_columns = ['CateringService_Name', 'Train_No', 'Service_Type', 'Menu_Description', 'Cost']
+ticket_status_columns = ['Train_No', 'Confirmed', 'Waiting']
+reservation_columns = ['Passenger_ID', 'Ticket_NO', 'Booking_Date', 'Status']
+complaints_columns = ['Passenger_ID', 'Ticket_NO', 'Complaint_Text', 'Status', 'Resolution_Text']
+
+
+#-----------------------
+generate_and_write_to_csv('Train', train_columns, train_data)
+generate_and_write_to_csv('Passenger', passenger_columns, passenger_data)
+generate_and_write_to_csv('Ticket', ticket_columns, ticket_data)
+
+generate_and_write_to_csv('Station', station_columns, station_data)
+generate_and_write_to_csv('Route', route_columns, route_data)
+generate_and_write_to_csv('intermediate', intermediate_columns, intermediate_data)
+generate_and_write_to_csv('Lost_and_found', lost_and_found_columns, lost_and_found_data)
+generate_and_write_to_csv('Schedule', schedule_columns, schedule_data)
+generate_and_write_to_csv('Delay_history', delay_history_columns, delay_history_data)
+generate_and_write_to_csv('Catering_service', catering_service_columns, catering_service_data)
+generate_and_write_to_csv('ticket_status', ticket_status_columns, ticket_status_data)
+generate_and_write_to_csv('reservation', reservation_columns, reservation_data)
+generate_and_write_to_csv('complaints', complaints_columns, complaints_data)
+
+print("All CSV files created successfully.")
