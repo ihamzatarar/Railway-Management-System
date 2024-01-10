@@ -148,8 +148,7 @@ FROM
 JOIN 
     Ticket_Status TS ON T.Ticket_No = TS.Ticket_No;
 
--- Query 15:Find Stations with No Lost and Found Items
-SELECT Station.Station_Name
-FROM Station
-LEFT JOIN LostAndFound ON Station.Station_Name = LostAndFound.Station_Name
-WHERE LostAndFound.Station_Name IS NULL;
+-- Query 15:Query to Calculate Total Revenue from Ticket Sales:
+
+SELECT SUM(T.Ticket_Price) AS Total_Revenue
+FROM Ticket T;
