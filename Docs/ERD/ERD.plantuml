@@ -169,8 +169,8 @@ dia11 -- Complaints: "\n\n\n\n\n\n\n\n n"
 Ticket -- dia9: "0 \n\n\n Related to"
 dia9 -- Complaints: "n"
 
-Ticket -- dia2: "0 \n\n\n Related to"
-dia2 -- Route: "n"
+Ticket -- dia2: "1 \n\n\n Related to"
+dia2 -- Route: "1"
 
 
 Route -- dia12: "n \n\n\n\n\n\n\n\n\n\n\n\n\n Includes"
