@@ -39,15 +39,16 @@ The Railway Management System is a comprehensive database project designed to st
 ### Repository Structure:
 
 - **/Data Sets:**  Data related to the project.
-- **/Queries:** SQL scripts for creating and populating the database and some intersing queries.
-- **/Scripts:** helping scripts of python for data creation.
-- **/ERD:** Contains ERD of project along with ERD plantuml code.
+- **/SQL Queries:** SQL scripts for creating and populating the database and some intersing queries.
+- **/Data Creation Scripts:** helping scripts of python for data creation.
+- **/Docs:** Contains ERD of project along with ERD plantuml code and Project Description.
+.
 
 ### How to Use:
 
 1. Clone the repository.
-2. Run the SQL scripts in the `/Queries` folder to set up the database.
-3. Refer to the documentation in the `/Project Description` folder for additional guidance on using and extending the system.
+2. Run the SQL scripts in the `/SQL Queries` folder to set up the database.
+3. Refer to the documentation in the `/Docs` folder for additional guidance on using and extending the system.
 
 ### Screenshots:
 <img width="1014" alt="Screenshot 2024-01-10 at 11 08 28 AM" src="https://github.com/ihamzatarar/Railway-System-Database/assets/83910939/38139227-d8b5-44b4-8d0b-5d1bf8c5f340">
