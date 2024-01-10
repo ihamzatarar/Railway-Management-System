@@ -1,7 +1,5 @@
 # Railway Management System
 
-## Project Proposal
-
 The Railway Management System is a comprehensive database project designed to streamline and enhance various aspects of train operations, passenger management, ticketing, and related services. The system encompasses multiple functionalities to ensure efficient handling and organization of the railway system.
 
 ### Key Features:
@@ -40,15 +38,17 @@ The Railway Management System is a comprehensive database project designed to st
 
 ### Repository Structure:
 
-- **/docs:** Documentation files related to the project.
-- **/database_scripts:** SQL scripts for creating and populating the database.
-- **/source_code:** Source code files for the application (if applicable).
+- **/Data Ser:**  Data related to the project.
+- **/Queries:** SQL scripts for creating and populating the database.
+- **/Script:** helping scripts of python for data creation.
 
 ### How to Use:
 
 1. Clone the repository.
-2. Run the SQL scripts in the `/database_scripts` folder to set up the database.
-3. Refer to the documentation in the `/docs` folder for additional guidance on using and extending the system.
+2. Run the SQL scripts in the `/Queries` folder to set up the database.
+3. Refer to the documentation in the `/Project Description` folder for additional guidance on using and extending the system.
+
+### Screenshots:
 
 Feel free to contribute to the project by submitting bug reports, feature requests, or code enhancements.
 
