@@ -1,7 +1,7 @@
-CREATE DATABASE Railway_System_DataBase_10;
+CREATE DATABASE Railway_Management_System;
 
 Go
-Use Railway_System_DataBase_10;
+Use Railway_Management_System;
 
 
 CREATE TABLE Train
@@ -26,7 +26,6 @@ Train_No int FOREIGN KEY REFERENCES Train(Train_No),
 Ticket_Price int
 )
 
-------------------------------------------------------------------------
 CREATE TABLE Station
 (Station_Name varchar(255) PRIMARY KEY,
 Address varchar(255)
@@ -53,7 +52,7 @@ Found_Date DATE,
 Item_Description varchar(255),
 Claimed varchar(255)
 )
---------------------------------------------------------------------------
+
 CREATE TABLE Schedule
 (Train_No int FOREIGN KEY REFERENCES Train(Train_No),
 Route_ID int FOREIGN KEY REFERENCES Route(Route_ID),
