@@ -1,6 +1,4 @@
  -------------------------------------------------------------- Interesting Queries --------------------------------------------------------------
-
-
 --Query 1: Percentage of Confirmed and Waiting Tickets:
 SELECT
 (COUNT(CASE WHEN TS.Confirmed = 'Yes' THEN 1 END) * 100 / COUNT(*)) AS Percentage_Confirmed,
@@ -20,7 +18,7 @@ ORDER BY Age_Range DESC;
 
 -- Query 3: Retrieve the total cost of catering services for passengers who have reservations on trains with delays:
 
-SELECT P.Passenger_ID, SUM(CS.Cost) AS TotalCateringCost
+SELECT top 20 P.Passenger_ID, SUM(CS.Cost) AS TotalCateringCost
 FROM Passenger P
 JOIN Reservation R ON P.Passenger_ID = R.Passenger_ID
 JOIN Ticket T ON R.Ticket_NO = T.Ticket_NO
@@ -50,11 +48,12 @@ JOIN Route R ON S.Route_ID = R.Route_ID
 GROUP BY R.Route_ID
 ORDER BY Number_of_Tickets_Sold DESC;
 
--- Query 6: TOP 5 Routes with the Most Train Delays:
+-- Query 6: TOP 5 Routes with the Most Train Delays including Train Names:
 
-SELECT TOP 5 R.Route_ID, COUNT(*) AS Number_of_Delays
+SELECT TOP 5 R.Route_ID, COUNT(*) AS Number_of_Delays, T.Train_Name
 FROM TrainDelayHistory TD
 JOIN Schedule S ON TD.Train_No = S.Train_No
 JOIN Route R ON S.Route_ID = R.Route_ID
-GROUP BY R.Route_ID
+JOIN Train T ON TD.Train_No = T.Train_No
+GROUP BY R.Route_ID, T.Train_Name
 ORDER BY Number_of_Delays DESC;
