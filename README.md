@@ -38,9 +38,9 @@ The Railway Management System is a comprehensive database project designed to st
 
 ### Repository Structure:
 
-- **/Data Ser:**  Data related to the project.
-- **/Queries:** SQL scripts for creating and populating the database.
-- **/Script:** helping scripts of python for data creation.
+- **/Data Sets:**  Data related to the project.
+- **/Queries:** SQL scripts for creating and populating the database and some intersing queries.
+- **/Scripts:** helping scripts of python for data creation.
 
 ### How to Use:
 
