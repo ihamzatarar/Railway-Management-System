@@ -30,7 +30,8 @@ ENTITY Ticket {
   --
   + Passenger_ID (Fk)
   + Train_No (FK)
-  + Ticket_Price 
+  + Ticket_Price
+  + Route_ID (FK)
   
 }
 
@@ -118,7 +119,7 @@ ENTITY TrainDelayHistory {
 }
 
 diamond dia1
-' diamond dia2
+diamond dia2
 diamond dia3
 diamond dia4
 diamond dia5
@@ -168,6 +169,9 @@ dia11 -- Complaints: "\n\n\n\n\n\n\n\n n"
 Ticket -- dia9: "0 \n\n\n Related to"
 dia9 -- Complaints: "n"
 
+Ticket -- dia2: "0 \n\n\n Related to"
+dia2 -- Route: "n"
+
 
 Route -- dia12: "n \n\n\n\n\n\n\n\n\n\n\n\n\n Includes"
 dia12 -- Route_Intermediate_Station:"\n\n\n\n\n m"
@@ -185,11 +189,6 @@ Ticket-- dia16:"1"
 dia16 -- Reservation: "Associates \n\n 1"
 
 @enduml
-
-#Train + Route =  Schedule 
-# Ticket + Pasasnger = Reseveration
-# Route + Stations
-#
 
 
 
