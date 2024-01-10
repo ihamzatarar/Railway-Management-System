@@ -87,9 +87,6 @@ GROUP BY TD.Train_No
 ORDER BY Number_of_Delays DESC;
 
 
-
-
-
 -- Query 8: Stations with the Highest Number of Lost and Found Complaints:
 
 SELECT LF.Station_Name, COUNT(*) AS Number_of_Complaints
@@ -97,13 +94,11 @@ FROM LostAndFound LF
 GROUP BY LF.Station_Name
 ORDER BY Number_of_Complaints DESC;
 
-
-
 -- Query 9: Satisfaction with Complaint Resolution Process:
 
-SELECT (COUNT(CASE WHEN C.Status = 'closed' THEN 1 END) * 100 / COUNT(*)) AS Percentage_Closed, (COUNT(CASE WHEN C.Status = 'open' THEN 1 END) * 100 / COUNT(*)) AS Percentage_Open
+SELECT (COUNT(CASE WHEN C.Status = 'closed' THEN 1 END) * 100 / COUNT(*)) AS Percentage_Closed, 
+(COUNT(CASE WHEN C.Status = 'open' THEN 1 END) * 100 / COUNT(*)) AS Percentage_Open
 FROM Complaints C;
-
 
 -- Query 10: Passengers with Multiple Complaints:
 SELECT TOP 5
@@ -128,7 +123,6 @@ LEFT JOIN Complaints C ON LAF.Claimed_By_Passenger_ID = C.Passenger_ID
 GROUP BY LAF.Item_Description
 ORDER BY ComplaintCount DESC;
 
-
 -- Query 13: Query to Retrieve Routes with Intermediate Stations:
 
 SELECT DISTINCT R.Route_ID, R.Source_Station, R.Destination_Station, S.Station_Name AS Intermediate_Station
@@ -136,7 +130,6 @@ FROM Route R
 LEFT JOIN Route_Intermediate_Station RS ON R.Route_ID = RS.Route_ID
 LEFT JOIN Station S ON RS.Station_Name = S.Station_Name
 WHERE S.Station_Name IS NOT NULL;
-
 
 -- Query 14:Ticket Number with Confirmed Tickets 
 SELECT 
