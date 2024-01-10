@@ -1,6 +1,6 @@
 # Railway Management System
 
-The Railway Management System is a comprehensive database project designed to streamline and enhance various aspects of train operations, passenger management, ticketing, and related services. The system encompasses multiple functionalities to ensure efficient handling and organization of the railway system.
+The Railway Management System is a comprehensive database project designed to streamline and enhance various aspects of train operations, passenger management, ticketing, and related services. The system encompasses multiple functionalities to ensure efficient handling and organization of the railway system.This project has almost 15k entries.
 
 ### Key Features:
 
@@ -41,6 +41,7 @@ The Railway Management System is a comprehensive database project designed to st
 - **/Data Sets:**  Data related to the project.
 - **/Queries:** SQL scripts for creating and populating the database and some intersing queries.
 - **/Scripts:** helping scripts of python for data creation.
+- **/ERD:** Contains ERD of project along with ERD plantuml code.
 
 ### How to Use:
 
@@ -49,6 +50,11 @@ The Railway Management System is a comprehensive database project designed to st
 3. Refer to the documentation in the `/Project Description` folder for additional guidance on using and extending the system.
 
 ### Screenshots:
+<img width="1014" alt="Screenshot 2024-01-10 at 11 08 28 AM" src="https://github.com/ihamzatarar/Railway-System-Database/assets/83910939/38139227-d8b5-44b4-8d0b-5d1bf8c5f340">
+<img width="1125" alt="Screenshot 2024-01-10 at 11 08 45 AM" src="https://github.com/ihamzatarar/Railway-System-Database/assets/83910939/abd3a935-c2db-4c80-9d65-bdda9d933180">
+<img width="1125" alt="Screenshot 2024-01-10 at 11 10 36 AM" src="https://github.com/ihamzatarar/Railway-System-Database/assets/83910939/2a1a1a8c-4afe-4e6a-9bdc-e87985176aef">
+
+
 
 Feel free to contribute to the project by submitting bug reports, feature requests, or code enhancements.
 
