@@ -1,0 +1,196 @@
+@startuml  ERD
+
+skinparam linetype ortho
+ENTITY Passenger {
+  + Passenger_ID (PK)
+  --
+  + First_Name 
+  + Last_Name 
+  + Age 
+  + Gender 
+  + Address
+  + Mobile_no
+}
+
+ENTITY Train {
+  + Train_No (PK)
+  --
+  + Name 
+  + Capacity  
+}
+
+ENTITY Station {
+  + Station_Name (PK)
+  --
+  + Address
+}
+
+ENTITY Ticket {
+  + Ticket_NO (Pk)
+  --
+  + Passenger_ID (Fk)
+  + Train_No (FK)
+  + Ticket_Price 
+  
+}
+
+ENTITY Ticket_Status {
+  + Ticket_NO(Fk)
+  --
+  + Confirmed 
+  + Waiting
+}
+
+
+ENTITY Schedule {
+  + Train_No (FK)
+  + Route_ID (FK)
+  --
+  + Departure_Date
+  + Arrival_Date
+  + Departure_Time 
+  + Arrival_Time 
+  
+}
+
+ENTITY Route {
+  + Route_ID (PK)
+  --
+  + Source_Station (FK)
+  + Destination_Station (FK)
+  + Distance 
+  + Duration 
+}
+
+ENTITY Route_Intermediate_Station { 
+  + Route_ID(FK)
+  + Station_Name(FK)
+  --
+}
+
+ENTITY Reservation {
+  + Passenger_ID (FK)
+  + Ticket_NO (FK)
+  --
+  + Booking_Date
+  + Status 
+}
+
+ENTITY Complaints {
+  + Passenger_ID(FK)
+  + Ticket_ID (FK)
+  --
+  + Complaint_Text 
+  + Status 
+  + Resolution_Text 
+}
+
+
+
+ENTITY LostAndFound {
+  + LostAndFound_ID (PK)
+  --
+  + Station_No(Fk)
+  + Claimed_By_Passenger_ID (Fk)
+  + Found_Date
+  + Item_Description 
+  + Claimed
+  
+}
+
+ENTITY CateringService {
+  + CateringService_Name(PK) 
+  --
+  + Train_No (FK)
+  + Service_Type 
+  + Menu_Description 
+  + Cost 
+}
+
+ENTITY TrainDelayHistory {
+  + DelayHistory_ID (Pk)
+  --
+  + Train_No (FK)
+  + Date
+  + Delay_Duration 
+  + Cause 
+  + Resolution_Details 
+}
+
+diamond dia1
+' diamond dia2
+diamond dia3
+diamond dia4
+diamond dia5
+diamond dia6
+diamond dia7
+diamond dia8
+diamond dia9
+diamond dia11
+diamond dia12
+diamond dia13
+diamond dia14
+diamond dia15
+diamond dia16
+
+
+Passenger -- dia1 :"1 \n\n\n Books"
+dia1 -- Ticket: "n"
+
+' Train -- dia2: "1       Stops at"
+' dia2 -- Station:"n"
+
+Train -- dia3: "m \n \n\n \n Follows"
+dia3 -- Schedule:"n"
+
+Train -- dia4: "Issues \t\t\t   1"
+dia4 -- Ticket: "\n\n\n n"
+
+Ticket -- dia5: "1"
+dia5 -- Ticket_Status: "Tracks Status \n\n\n\n\n1"
+
+Train -- dia6: "0 \n\n\n\n\n Offers"
+dia6 -- CateringService:"n"
+
+Train -- dia7:"0"
+dia7 -- TrainDelayHistory: "Experiences \n  n"
+
+Station -- dia8: "1 \n\n\n Manages"
+dia8 -- LostAndFound: "n"
+
+
+
+
+
+Passenger -- dia11: "0 \n\n\n\n\n Submits"
+dia11 -- Complaints: "\n\n\n\n\n\n\n\n n"
+
+Ticket -- dia9: "0 \n\n\n Related to"
+dia9 -- Complaints: "n"
+
+
+Route -- dia12: "n \n\n\n\n\n\n\n\n\n\n\n\n\n Includes"
+dia12 -- Route_Intermediate_Station:"\n\n\n\n\n m"
+
+Station -- dia13: "n \n\n\n"
+dia13 -- Route_Intermediate_Station: "Includes \n\n m"
+
+Route -- dia14: "n \n Follows"
+dia14 -- Schedule:"m"
+
+Route -- dia15: "1 \n\n\n\n\n Connects"
+dia15 -- Station:"\n\n\n\n\n n"
+
+Ticket-- dia16:"1"
+dia16 -- Reservation: "Associates \n\n 1"
+
+@enduml
+
+#Train + Route =  Schedule 
+# Ticket + Pasasnger = Reseveration
+# Route + Stations
+#
+
+
+
+
